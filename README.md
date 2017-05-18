@@ -49,8 +49,6 @@ This tap:
 
     You can provide JSON file that contains a start date to pull data from. This will override the required `start-date` in the config file. The state is output after the program is run to stdout with a new state file where the old `end-date` becomes the new state's `start-date`. See the Singer documentation for more information on states.
 
-    **Keep in mind that if you use this feature you'll need to update the end-date in the config or else you'll end up pulling data from only one day.**
-
     ```json
     {"start-date": "2017-01-17T20:00:00Z"}
     ```
@@ -69,6 +67,8 @@ This tap:
     › tap-mixpanel --config config.json --state state.json >> state.json
     › tail -1 state.json > state.json.tmp && mv state.json.tmp state.json
     ```
+
+     **Keep in mind that if you use this feature you'll need to update the end-date in the config or else you'll end up pulling data from only one day.**
 
 ### Limitations
 
