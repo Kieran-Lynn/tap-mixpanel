@@ -41,9 +41,9 @@ This tap:
 
     **raw-data(required):** Determines whether or not to sync Mixpanel raw data. This is a bool <br />
     **events(required):** Determines whether or not to sync Mixpanel raw data. This is a bool. <br />
-    **event-names(required if events is true):*** array must be populated with valid event names. This is how the Mixpanel API works, it expects an array of event names.<br />
-    **start-date(required):** determines pulls data from after that day<br />
-    **end-date(optional):** determines limits the data to the days between start-date and end-date. If no end-date is provided then the default is the current day.
+    **event-names(required if events is true):** Array must be populated with valid event names. This is how the Mixpanel API works, it expects an array of event names.<br />
+    **start-date(required):** Determines pulls data from after that day<br />
+    **end-date(optional):** Determines limits the data to the days between start-date and end-date. If no end-date is provided then the default is the current day.
 
 4. [Optional] Create the initial state file
 
@@ -80,6 +80,6 @@ Events currently does not sort the returned dates so the output can be a little 
 
 The mixpanel API is super slow at returning the raw data export. Be prepared to wait if 
 you're trying to pull a large amount of data. Also, events can have any number of custom properties so you cannot depend on each event object returned to have the same number of properties. <br/>
-** This can cause some weirdness if you use target-csv**
+**This can cause some weirdness if you use target-csv**
 
 ---
