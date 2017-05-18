@@ -49,6 +49,8 @@ def convert_export_response_to_raw_data_schema(response):
         
     return raw_data
 
+#per the Mixpanel API the events query param should be in this format: 
+#"["play song", "log in", "add playlist"]"
 def build_event_query_param(events_to_get):
     event_query = '['
     for event in events_to_get:
@@ -60,6 +62,8 @@ def build_event_query_param(events_to_get):
 
     return event_query_param
 
+#Mixpanel API Date format:
+#yyyy-mm-dd
 def convert_date_string_to_mixpanel_format(date_string):
     date = datetime.strptime(date_string, datetime_format)
     date = date.strftime(mixpanel_date_format)
