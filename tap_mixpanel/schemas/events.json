@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "event": { "type": "string" },
+        "values": {
+            "type": "object",
+            "patternProperties": {
+                ".*": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

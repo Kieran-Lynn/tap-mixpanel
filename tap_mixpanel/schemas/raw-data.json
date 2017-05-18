@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "event": {"type": "string"},
+        "event_properties": {
+            "type": "object",
+            "properties": {
+                "distinct_id": {"type": "string"},
+                "time": {"type": "integer"},
+                "origin": {"type": "string"},
+                "origin_referrer": {"type": "string"},
+                "$initial_referring_domain": {"type": "string"},
+                "$referrer": {"type": "string"},
+                "$initial_referrer": {"type": "string"},
+                "$referring_domain": {"type": "string"},
+                "$os": {"type": "string"},
+                "origin_domain": {"type": "string"},
+                "tab": {"type": "string"},
+                "$browser": {"type": "string"},
+                "Project ID": {"type": "string"},
+                "mp_country_code": {"type": "string"}
+            }
+        }
+    }
+}
