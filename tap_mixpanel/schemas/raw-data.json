@@ -19,7 +19,8 @@
                 "$browser": {"type": "string"},
                 "Project ID": {"type": "string"},
                 "mp_country_code": {"type": "string"}
-            }
+            },
+            "additionalProperties": true
         }
     }
 }
