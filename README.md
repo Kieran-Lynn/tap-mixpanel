@@ -39,17 +39,17 @@ This tap:
     }
     ```
 
-    **raw-data(required):** Determines whether or not to sync Mixpanel raw data. This is a bool
-    **events(required):** Determines whether or not to sync Mixpanel raw data. This is a bool.
-    **event-names(required if events is true):*** array must be populated with valid event names. This is how the Mixpanel API works, it expects an array of event names.
-    **start-date(required):** determines pulls data from after that day
+    **raw-data(required):** Determines whether or not to sync Mixpanel raw data. This is a bool <br />
+    **events(required):** Determines whether or not to sync Mixpanel raw data. This is a bool. <br />
+    **event-names(required if events is true):*** array must be populated with valid event names. This is how the Mixpanel API works, it expects an array of event names.<br />
+    **start-date(required):** determines pulls data from after that day<br />
     **end-date(optional):** determines limits the data to the days between start-date and end-date. If no end-date is provided then the default is the current day.
 
 4. [Optional] Create the initial state file
 
     You can provide JSON file that contains a start date to pull data from. This will override the required `start-date` in the config file. The state is output after the program is run to stdout with a new state file where the old `end-date` becomes the new state's `start-date`. See the Singer documentation for more information on states.
 
-    **Keep in mind that you'll need to updated the end-date in the config or else you'll end up pulling data from only one day.**
+    **Keep in mind that if you use this feature you'll need to update the end-date in the config or else you'll end up pulling data from only one day.**
 
     ```json
     {"start-date": "2017-01-17T20:00:00Z"}
@@ -66,7 +66,7 @@ This tap:
 6. [Optional] Save state
 
     ```bash
-    › tap-clubhouse --config config.json --state state.json >> state.json
+    › tap-mixpanel --config config.json --state state.json >> state.json
     › tail -1 state.json > state.json.tmp && mv state.json.tmp state.json
     ```
 
@@ -79,6 +79,7 @@ Events currently does not sort the returned dates so the output can be a little 
 2. Raw Data
 
 The mixpanel API is super slow at returning the raw data export. Be prepared to wait if 
-you're trying to pull a large amount of data. Also not all events returned have to have every field in the schema. This can cause some rows to have some fields off by one. 
+you're trying to pull a large amount of data. Also, events can have any number of custom properties so you cannot depend on each event object returned to have the same number of properties. <br/>
+** This can cause some weirdness if you use target-csv**
 
 ---
